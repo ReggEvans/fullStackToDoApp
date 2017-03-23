@@ -3,9 +3,32 @@ import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'
 
+import ToDoApp from './views/ToDoApp'
+
 
 const app = function() {
-  document.querySelector('.container').innerHTML = `<h1>ToDoApp</h1>`
+  var ToDoRouter = Backbone.Router.extend({
+  	routes: {
+  		"tasks" : "handleToDoView",
+  		"complete" : "handleCompletedView",
+  		"unfinished" : "handleUnfinishedView",
+  		"*default" : "home"
+  	},
+  	home: function() {
+  		location.hash = "tasks"
+  	},
+  	handleToDoView: function() {
+  		ReactDOM.render(<ToDoApp />, document.querySelector('.container'))
+  	},
+  	handleCompletedView: function() {
+  		ReactDOM.render(<Complete />, document.querySelector('.container'))
+  	},
+  	handleUnfinishedView: function() {
+  		ReactDOM.render(<Unfinished />, document.querySelector('.container'))
+  	}
+  })
+  new ToDoRouter()
+  Backbone.history.start()
 }
 
 // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..

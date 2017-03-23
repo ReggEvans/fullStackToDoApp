@@ -4,7 +4,20 @@
 }
 
 h1 {
-	font-size: 300px;
 	text-align: center;
-	color: fuchsia;
 }
+
+.single-task {
+	border: 1px solid #333;
+	padding: 20px;
+	font-size: 15px;
+	margin: 20px 0;
+	box-shadow: 5px 5px 5px #555;
+}
+
+.contentWrapper {
+	width: 50%;
+	margin-left: 50%;
+	transform: translate(-50%);
+}
+
