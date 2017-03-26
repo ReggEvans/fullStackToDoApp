@@ -7,9 +7,13 @@ import Header from './components/header'
 
 var ToDoApp = React.createClass({
 	componentWillMount: function() {
+		ACTIONS.fetchAllTasks()
 		STORE.on('dataUpdated', () => {
 			this.setState(STORE.data)
 		})
+	},
+	componentWillUnmount: function() {
+		STORE.off()
 	},
 	getInitialState: function() {
 		return STORE.data
@@ -18,10 +22,9 @@ var ToDoApp = React.createClass({
 		event.preventDefault()
 		var formInput = event.target
 		var taskData = {
-			title: formInput.newTask.value,
-			description: formInput.description.value,
-			date: formInput.date.value,
-			complete: false
+			task: formInput.newTask.value,
+			// notes: formInput.notes.value,
+			// date: formInput.date.value
 		}
 		ACTIONS.addTask(taskData)
 
@@ -30,14 +33,16 @@ var ToDoApp = React.createClass({
 	render: function() {
 		return (
 			<div className='ToDoApp'>
-				<Header />
+				<Header tasks={this.state.tasksCollection}/>
 				<div className='contentWrapper'>
-					<form onSubmit={this.handleSubmit}>
-					  <input name='newTask' type="text" placeholder="Add a new task..."/>
-					  <input name='description' type="text" placeholder="Description"/>
-					  <input name='date' type="text" placeholder="Due Date"/>
-					  <input name='submit' type="submit" value="+" />
-					</form>
+					<div className='form-wrapper'>
+						<form onSubmit={this.handleSubmit}>
+						  <input className='textInput' name='newTask' type="text" placeholder="Add a new task..."/>
+						  {/*<input name='notes' type="text" placeholder="Notes"/>
+						  <input name='date' type="text" placeholder="Due Date"/>} */}
+						  <input className='button' name='submit' type="submit" value="+" />
+						</form>
+					</div>
 					<TaskList tasks={this.state.tasksCollection}/>
 				</div>
 			</div>
@@ -47,9 +52,11 @@ var ToDoApp = React.createClass({
 
 var TaskList = React.createClass({
 	makeSingleTasks: function(model) {
-		return (
-			<SingleTask taskModel={model} key={model.cid} />
-		)
+		if (model.get('complete') === false) {
+			return (
+				<SingleTask taskModel={model} key={model.cid} />
+			)
+		}
 	},
 	render: function() {
 		return (
@@ -61,15 +68,23 @@ var TaskList = React.createClass({
 })
 
 var SingleTask = React.createClass({
+	handleToggle: function() {
+		ACTIONS.toggleComplete(this.props.taskModel)
+	},
 	render: function() {
+		var date = new Date(this.props.taskModel.get('createdAt'))
+
 		return (
 			<div className="single-task" >
-				<p>
-					{this.props.taskModel.get('title')}
-					<span className='close' onClick={() => ACTIONS.handleDelete(this.props.taskModel.cid)}>x</span>
-				</p>
-				<p>{this.props.taskModel.get('description')}</p>
-				<small>{this.props.taskModel.get('date')}</small>
+				<div className='task-div'>
+					<p>{this.props.taskModel.get('task')}</p>
+				</div>
+				<div className='button-div'>
+					<button className='close' onClick={this.handleToggle}><i className="material-icons md-36">done_all</i></button>
+				</div>
+				<div className='date'>
+					<small>{moment(date).fromNow()}</small>
+				</div>
 				
 			</div>
 		)

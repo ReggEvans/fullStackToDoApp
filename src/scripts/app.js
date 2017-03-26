@@ -4,6 +4,7 @@ import Backbone from 'backbone'
 import init from './init'
 
 import ToDoApp from './views/ToDoApp'
+import Complete from './views/complete'
 
 
 const app = function() {
@@ -11,7 +12,6 @@ const app = function() {
   	routes: {
   		"tasks" : "handleToDoView",
   		"complete" : "handleCompletedView",
-  		"unfinished" : "handleUnfinishedView",
   		"*default" : "home"
   	},
   	home: function() {
@@ -23,9 +23,6 @@ const app = function() {
   	handleCompletedView: function() {
   		ReactDOM.render(<Complete />, document.querySelector('.container'))
   	},
-  	handleUnfinishedView: function() {
-  		ReactDOM.render(<Unfinished />, document.querySelector('.container'))
-  	}
   })
   new ToDoRouter()
   Backbone.history.start()
