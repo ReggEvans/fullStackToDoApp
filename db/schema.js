@@ -19,6 +19,7 @@ const taskSchema = new mongoose.Schema({
 	task: { type: String, required: true },
 	// notes: { type: String, required: false },
 	// date: { type: String, required: false },
+  user_id: {type: String, required: true },
   complete: {type: Boolean, default: false },
 	createdAt: { type: Date, default: Date.now }
 })

@@ -11,6 +11,15 @@
 
 header {
 	background-color: #61D3A5;
+	position: relative;
+	height: 100px;
+}
+
+.welcome {
+	position: absolute;
+	top: 2px;
+	right: 50px;
+	color: #fff;
 }
 
 h1 {
@@ -49,11 +58,21 @@ h1 {
 	color: #fff;
 }
 
-form {
+.todoForm {
 	margin-left: 50%;
 	transform: translate(-60%);
 	background-color: #61D3A5;
-	height:50px;
+	padding-bottom: 20px;
+}
+
+.register-form {
+	margin-top: 20px;
+	margin-left: 50%;
+	transform: translate(-55%);
+	background-color: #61D3A5;
+	padding: 0px 50px 30px 50px;
+	width: 380px;
+	box-shadow: 0 4px 2px -2px #888888;
 }
 
 ::-webkit-input-placeholder {
@@ -66,7 +85,7 @@ form {
 }
 
 .textInput {
-	font-size: 18px;
+	font-size: 16px;
 	border: none;
 	background-color:  #61D3A5;
 	border-bottom: 1px solid #4EAD86;
@@ -86,7 +105,26 @@ form {
 	width: 10%;
 }
 
+h2 {
+	color: #fff;
+	margin: 0;
+	padding: 20px 0;
+}
 
+.loginInput {
+	font-size: 14px;
+	border: none;
+	width: 300px;
+	margin-top: 20px;
+	height: 30px;
+	padding: 5px;
+}
+
+.loginButton {
+	padding: 10px;
+	width: 100px;
+	margin-top: 20px;
+}
 
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }
@@ -133,6 +171,10 @@ form {
     left: 75px;
 }
 
+a {
+	cursor: pointer;
+}
+
 
 @media screen and (min-width: 736px) {
     .container {
@@ -146,5 +188,6 @@ form {
 
     #complete-close {
     left: 375px;
-}
+	}
+
 }

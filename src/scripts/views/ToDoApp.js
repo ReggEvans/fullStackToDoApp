@@ -7,7 +7,7 @@ import Header from './components/header'
 
 var ToDoApp = React.createClass({
 	componentWillMount: function() {
-		ACTIONS.fetchAllTasks()
+		ACTIONS.fetchAllTasks(this.props.userID)
 		STORE.on('dataUpdated', () => {
 			this.setState(STORE.data)
 		})
@@ -36,7 +36,7 @@ var ToDoApp = React.createClass({
 				<Header tasks={this.state.tasksCollection}/>
 				<div className='contentWrapper'>
 					<div className='form-wrapper'>
-						<form onSubmit={this.handleSubmit}>
+						<form onSubmit={this.handleSubmit} className='todoForm'>
 						  <input className='textInput' name='newTask' type="text" placeholder="Add a new task..."/>
 						  {/*<input name='notes' type="text" placeholder="Notes"/>
 						  <input name='date' type="text" placeholder="Due Date"/>} */}
