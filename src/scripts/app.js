@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'
+import User from './models/userModel.js'
 
 import ToDoApp from './views/ToDoApp'
 import Complete from './views/complete'
@@ -16,7 +17,7 @@ const app = function() {
   		"*default" : "home"
   	},
   	home: function() {
-  		location.hash = "tasks/user/:id"
+          location.hash = '#login'
   	},
     handleLoginView: function() {
       ReactDOM.render(<Login />, document.querySelector('.container'))
