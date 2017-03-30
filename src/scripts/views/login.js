@@ -20,6 +20,7 @@ var Login = React.createClass({
 
 var LoginForm = React.createClass({
 	_handleSubmit: function(e){
+		e.preventDefault()
 		var formEl = e.target
 		ACTIONS.logUserIn(formEl.email.value, formEl.password.value)
 	},
