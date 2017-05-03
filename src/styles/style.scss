@@ -4,8 +4,8 @@
 }
 
 .container {
-	max-width: 400px;
-    min-width: 400px;
+	max-width: 900px;
+	min-width: 414px;
     margin: 0 auto;
 }
 
@@ -93,8 +93,10 @@ h1 {
 }
 
 .button-div {
-	display: inline-block;
-	position: relative;
+	cursor: pointer;
+	position: absolute;
+	top: 20px;
+    right: 50px;
 }
 
 .button {
@@ -137,6 +139,7 @@ h2 {
 	margin-top: 30px;
 	padding: 5px 20px;
 	border-bottom:  2px solid #4EAD86;
+	position: relative;
 }
 
 .single-task p {
@@ -161,10 +164,7 @@ h2 {
 	color: #4EAD86;
 	border: none;
 	background-color: #fff;
-	cursor: pointer;
-	position: absolute;
-    top: -25px;
-    left: 50px;
+
 }
 
 #complete-close {
@@ -176,18 +176,18 @@ a {
 }
 
 
-@media screen and (min-width: 736px) {
-    .container {
-        min-width: 720px;
-        max-width: 720px;
-    }
+// @media screen and (min-width: 736px) {
+//     .container {
+//         min-width: 720px;
+//         max-width: 720px;
+//     }
 
-    .close {
-		left: 350px;
-    }
+//     .close {
+// 		left: 350px;
+//     }
 
-    #complete-close {
-    left: 375px;
-	}
+//     #complete-close {
+//     left: 375px;
+// 	}
 
-}
+// }
