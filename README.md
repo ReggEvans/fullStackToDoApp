@@ -9,9 +9,10 @@ DoubleCheck is a full-stack to-do list application with user authentication that
 
 ## Built With
 
+* [React](https://facebook.github.io/react/) - Front-End web application framework
 * [MongoDB](https://www.mongodb.com/what-is-mongodb) - Document database
 * [Express](https://expressjs.com/) -  Back-end web application framework
-* [React](https://facebook.github.io/react/) - Front-End web application framework
+* [Backbone](http://backbonejs.org/) - Model, Controller Framework
 * [Node.js](https://facebook.github.io/react/) - JavaScript runtime environment
 
 ## Installation
