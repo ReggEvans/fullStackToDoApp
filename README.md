@@ -7,6 +7,13 @@ DoubleCheck is a full-stack to-do list application with user authentication that
 ## Screenshot
 ![DoubleCheck Screen Shot](/dist/assets/images/dbl_check_1.png)
 
+## Built With
+
+* [MongoDB](https://www.mongodb.com/what-is-mongodb) - Document database
+* [Express](https://expressjs.com/) -  Back-end web application framework
+* [React](https://facebook.github.io/react/) - Front-End web application framework
+* [Node.js](https://facebook.github.io/react/) - JavaScript runtime environment
+
 ## Installation
 ```
 git clone https://github.com/ReggEvans/fullStackToDoApp.git
