@@ -20,7 +20,7 @@ DoubleCheck is a full-stack to-do list application with user authentication that
 git clone https://github.com/ReggEvans/fullStackToDoApp.git
 cd fullStackToDoApp
 npm install
-mongod
+mongod 
 npm run go
 
 open localhost:3000 in the browser
